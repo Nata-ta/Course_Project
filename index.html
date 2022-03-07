@@ -4,9 +4,134 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Course project</title>
 </head>
 <body>
+
+<header class="hero">
+    <div class="container">
+        <div class="hero__header">
+            <div class="hero__header-wrap">
+                <div class="hero__logo">
+                    <img src="./images/logo.png" alt="" class="hero__logo-img">
+                </div>
+                <nav class="hero__nav">
+                    <ul class="hero__menu">
+                        <li class="hero__menu-item">
+                            <a href="#" class="hero__menu-link">HOME</a>
+                        </li>
+                        <li class="hero__menu-item">
+                            <a href="#" class="hero__menu-link">ABOUT</a>
+                        </li>
+                        <li class="hero__menu-item">
+                            <a href="#" class="hero__menu-link">CONTACT</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="hero__wrap">
+            <h1 class="caption hero__caption">Our Blog</h1>
+            <p class="hero__text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+        </div>
+    </div>
+</header>
+
+<main>
+    <form class="allNews">
+        <div class="posts">
+            <div class="posts__body">
+                <h2 class="caption posts__caption">News</h2>
+                <div class="posts__wrap">
+                    <h3 class="title posts__title">Author's Name</h3>
+                    <p class="posts__date">Date</p>
+                </div>
+                <div class="posts__body-info">
+                    <div class="posts__img-box">
+                        <img src="./images/our_img1.jpg" class="posts__img" alt="New image">
+                    </div>
+                    <div class="posts__descr-body">
+                        <p class="posts__descr">This is a long paragraph written to show how the line-height of an element is affected by our utilities. Classes are applied to the element itself or sometimes the parent element. These classes can be customized as needed with our utility API.</p>
+                        <div class="posts__descr-item">
+                            <span class="posts__likes">11</span>
+                            <span class="posts__comm">11</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="posts__comment">
+                    <h3 class="title posts__comment-title">Comments</h3>
+                   <div class="posts__comment-body">
+                        <div class="posts__comment-wrap">
+                            <h4 class="posts__comment-author">Author's Name</h4>
+                            <p class="posts__comment-date">Date</p>
+                        </div>
+                        <p class="posts__comment-descr">This is a long paragraph written to show how the line-height of an element is affected by our utilities. Classes are applied to the element itself or sometimes the parent element. These classes can be customized as needed with our utility API.</p>
+                   </div>
+                    <div class="posts__comment-textForm">
+                        <label for="commentText" class="posts__comment-label">New comment</label>
+                        <textarea class="posts__comment-text" id="commentText" rows="3"></textarea>
+                    </div>
+                    <button class="btn btn-submit posts__comment-btn" type="submit">Send post</button>
+                </div>
+            </div>
+            <aside class="posts__creator">
+                <div class="posts__form">
+                    <h2 class="caption posts__caption">Creat new post</h2>
+                    <div class="posts__userForm">
+                        <label for="formAuthor" class="posts__form-label">Author</label>
+                        <input type="text" class="posts__form-control" id="formAuthor">
+                    </div>
+                    <div class="posts__textForm">
+                        <label for="formText" class="form-label">Post text</label>
+                        <textarea class="posts__info-text" id="formText" rows="3"></textarea>
+                    </div>
+                    <div class="field__wrapper posts__field">
+                        <input name="file" type="file" name="file" id="field__file-2" class="field field__file" multiple>
+                        <label class="field__file-wrapper" for="field__file-2">
+                          <div class="field__file-fake">No file been choosen</div>
+                          <div class="field__file-button">Choose file</div>
+                        </label>
+                     </div>
+                    <button class="btn btn-submit posts__btn" type="submit">Creat post</button>
+                </div>
+            </aside>
+        </div>
+    </form>
+</main>
+
+    <!-- <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-7">
+                <h2>News</h2>
+                <div class="mb-3 row justify-content-between">
+                    <p class="col-6 text-primary fw-bold">Author's Name</p>
+                    <p class="col-6 fst-italic text-black-50 text-end">Date</p>
+                </div>
+                <img src="..." class="img-fluid mb-3" alt="New image">
+                <p class="lh-base mb-3">This is a long paragraph written to show how the line-height of an element is affected by our utilities. Classes are applied to the element itself or sometimes the parent element. These classes can be customized as needed with our utility API.</p>
+            </div>
+            <div class="col-5">
+                <h2>Creat new post</h2>
+                <div class="mb-3">
+                    <label for="formAuthor" class="form-label">Author</label>
+                    <input type="text" class="form-control" id="formAuthor">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Post text</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="downloadImg" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                    <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Button</button>
+                </div>
+                <div class="d-grid mb-3">
+                    <button class="btn btn-warning" type="submit">Creat post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     -->
     <script src="./js/main.js"></script>
 </body>
 </html>
