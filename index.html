@@ -39,10 +39,10 @@
 </header>
 
 <main>
-    <form class="allNews">
-        <div class="posts">
-            <div class="posts__body">
-                <h2 class="caption posts__caption">News</h2>
+    <div class="posts">
+        <div class="posts__body">
+            <h2 class="caption posts__caption">News</h2>
+            <!-- <div class="posts__news">
                 <div class="posts__wrap">
                     <h3 class="title posts__title">Author's Name</h3>
                     <p class="posts__date">Date</p>
@@ -54,8 +54,9 @@
                     <div class="posts__descr-body">
                         <p class="posts__descr">This is a long paragraph written to show how the line-height of an element is affected by our utilities. Classes are applied to the element itself or sometimes the parent element. These classes can be customized as needed with our utility API.</p>
                         <div class="posts__descr-item">
-                            <span class="posts__likes">11</span>
-                            <span class="posts__comm">11</span>
+                            <button class="posts__likes-btn"><span class="posts__likes"></span></button>
+                            <button class="posts__comm-btn"><span class="posts__comm"></span></button>
+                            
                         </div>
                     </div>
                 </div>
@@ -68,36 +69,45 @@
                         </div>
                         <p class="posts__comment-descr">This is a long paragraph written to show how the line-height of an element is affected by our utilities. Classes are applied to the element itself or sometimes the parent element. These classes can be customized as needed with our utility API.</p>
                    </div>
+                   <div class="posts__authorForm">
+                        <label for="nameAuthor" class="posts__form-author">Author</label>
+                        <input type="text" class="posts__form-authorControl" id="nameAuthor" name="authorName">
+                    </div>
                     <div class="posts__comment-textForm">
                         <label for="commentText" class="posts__comment-label">New comment</label>
                         <textarea class="posts__comment-text" id="commentText" rows="3"></textarea>
                     </div>
                     <button class="btn btn-submit posts__comment-btn" type="submit">Send post</button>
                 </div>
-            </div>
-            <aside class="posts__creator">
+            </div> -->
+        </div>
+        <aside class="posts__creator">
+            <form class="allNews">
                 <div class="posts__form">
                     <h2 class="caption posts__caption">Creat new post</h2>
                     <div class="posts__userForm">
                         <label for="formAuthor" class="posts__form-label">Author</label>
-                        <input type="text" class="posts__form-control" id="formAuthor">
+                        <input type="text" class="posts__form-control" id="formAuthor" name="author">
                     </div>
                     <div class="posts__textForm">
                         <label for="formText" class="form-label">Post text</label>
-                        <textarea class="posts__info-text" id="formText" rows="3"></textarea>
+                        <textarea class="posts__info-text" id="formText" rows="3" name="text"></textarea>
                     </div>
                     <div class="field__wrapper posts__field">
-                        <input name="file" type="file" name="file" id="field__file-2" class="field field__file" multiple>
+                        <label class="field__file-wrapper" for="field__file-2">Image URL</label>
+                        <input name="image" type="text" id="field__file-2" class="post__field">
+                        
+                        <!-- <input name="file" type="file" id="field__file-2" class="field field__file" multiple>
                         <label class="field__file-wrapper" for="field__file-2">
                           <div class="field__file-fake">No file been choosen</div>
                           <div class="field__file-button">Choose file</div>
-                        </label>
+                        </label> -->
                      </div>
-                    <button class="btn btn-submit posts__btn" type="submit">Creat post</button>
+                    <button class="btn btn-submit posts__btn _loadPostsBtn" type="submit">Creat post</button>
                 </div>
-            </aside>
-        </div>
-    </form>
+            </form>
+        </aside>
+    </div>
 </main>
 
     <!-- <div class="container mt-4">

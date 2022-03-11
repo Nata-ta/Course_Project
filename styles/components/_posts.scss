@@ -7,12 +7,10 @@
 
     &__body {
         width: 50%;
+    }
 
-        &-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    &__news {
+        margin-bottom: 30px;
     }
 
     &__creator {
@@ -43,7 +41,7 @@
         height: 100%;
 
         &-box{
-            width: 45%;
+            width: 100%;
             margin-bottom: 30px;
         }
     }
@@ -54,7 +52,7 @@
         padding-bottom: 15px;
 
         &-body {
-            width: 50%;
+            width: 100%;
         }
 
         &-item {
@@ -65,7 +63,7 @@
 
     &__likes {
         position: relative;
-        padding-left: 35px;
+        padding-left: 23px;
         color: $primary-color;
 
         &::after{
@@ -73,16 +71,24 @@
             width: 24px;
             height: 22px;
             position: absolute;
-            left: 0;
+            left: -12px;
             top: -2px;
             background-image: url(../images/like.png);
             background-repeat: no-repeat;
+        }
+
+        &-btn {
+            padding: 0;
+            width: 60px;
+            height: 22px;
+            border: none;
+            background-color: transparent;
         }
     }
 
     &__comm {
         position: relative;
-        padding-left: 35px;
+        padding-left: 23px;
         color: $primary-color;
 
         &::after{
@@ -90,10 +96,18 @@
             width: 24px;
             height: 22px;
             position: absolute;
-            left: 0;
+            left: -12px;
             top: -2px;
             background-image: url(../images/comm.png);
             background-repeat: no-repeat;
+        }
+
+        &-btn {
+            padding: 0;
+            width: 60px;
+            height: 22px;
+            border: none;
+            background-color: transparent;
         }
     }
 
@@ -137,6 +151,10 @@
     }
 
     &__textForm {
+        margin-bottom: 30px;
+    }
+
+    &__field {
         margin-bottom: 30px;
     }
 
