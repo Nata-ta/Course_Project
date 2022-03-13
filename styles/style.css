@@ -171,6 +171,9 @@ textarea {
 .posts__body {
   width: 50%;
 }
+.posts__body-info {
+  margin-bottom: 30px;
+}
 .posts__news {
   margin-bottom: 30px;
 }
@@ -195,10 +198,6 @@ textarea {
 .posts__img {
   width: 100%;
   height: 100%;
-}
-.posts__img-box {
-  width: 100%;
-  margin-bottom: 30px;
 }
 .posts__descr {
   color: #3e3e3e;
@@ -257,7 +256,10 @@ textarea {
   background-color: transparent;
 }
 .posts__comment {
-  padding: 0 30px 30px 0;
+  display: none;
+}
+.posts__comment-show {
+  display: block;
 }
 .posts__comment-title {
   color: #333334;

@@ -1,35 +1,36 @@
-let fields = document.querySelectorAll('.field__file');
-Array.prototype.forEach.call(fields, function (input) {
-    let label = input.nextElementSibling,
-        labelVal = label.querySelector('.field__file-fake').innerText;
-
-    input.addEventListener('change', function (e) {
-        let countFiles = '';
-        if (this.files && this.files.length >= 1)
-            countFiles = this.files.length;
-
-        if (countFiles)
-            label.querySelector('.field__file-fake').innerText = 'Choosen file: ' + countFiles;
-        else
-            label.querySelector('.field__file-fake').innerText = labelVal;
-    });
-});
-
 let postForm = document.querySelector('.allNews');
 let postContainer = document.querySelector('.posts__body');
 let loadPostsBtn = postForm.querySelector('._loadPostsBtn');
 
-class Comment {
-    constructor(name, body) {
-        this.name = name;
-        this.body = body;
-    }
-}
+
+
+
+
+// const addNewComm = (e) => {
+// e.preventDefault();
+
+// let newComment = new Comment(e.target.name.value, e.target.text.value);
+
+// comments.unshift(newComment);
+
+// // let jsonPost = JSON.stringify(posts);
+
+// // localStorage.setItem('posts', jsonPost);
+
+// commentSubmit.reset();
+
+// }
+
+// commentSubmit.forEach(form => {
+//     form.addEventListener('submit', addNewComm);
+// })
 
 let posts = [];
 
+let comments = [];
+
 class Post {
-    constructor(author, body, img, likes, id, date) {
+    constructor(author, body, img, likes, id, date, comments) {
 
         this.author = author;
         this.body = body;
@@ -38,29 +39,12 @@ class Post {
         this.id = id ? id : new Date().getTime();
         this.date = date ? date : new Date().toLocaleString();
 
+        this.comments = new Object(comments);
+
 
         this.addLike = this.addLike.bind(this);
         this.render();
     }
-
-    // addComment(elem) {
-    //     let block = document.createElement('div');
-    //     block.classList.add('posts__comment');
-
-    //     block.innerHTML = `
-    //         <div class="posts__authorForm">
-    //             <label for="nameAuthor" class="posts__form-author">Author</label>
-    //             <input type="text" class="posts__form-authorControl" id="nameAuthor" name="authorName">
-    //         </div>
-    //          <div class="posts__comment-textForm">
-    //              <label for="commentText" class="posts__comment-label">New comment</label>
-    //              <textarea class="posts__comment-text" id="commentText" rows="3"></textarea>
-    //          </div>
-    //          <button class="btn btn-submit posts__comment-btn" type="submit">Send post</button>
-    //         `;
-
-    //     element.appendChild(block);
-    // }
 
     addLike() {
         this.likes++;
@@ -87,13 +71,13 @@ class Post {
                 <h3 class="title posts__title">${this.author}</h3>
                 <p class="posts__date">${this.date}</p>
             </div>
+            <div class="posts__img-box"></div>
             <div class="posts__body-info">
-                <div class="posts__img-box"></div>
                 <div class="posts__descr-body">
                     <p class="posts__descr">${this.body}</p>
                     <div class="posts__descr-item">
                         <button class="posts__likes-btn"><span class="posts__likes">${this.likes}</span></button>
-                        <button class="posts__comm-btn"><span class="posts__comm"></span></button>
+                        <button class="posts__comm-btn"><span class="posts__comm">${this.comments.length}</span></button>
                     </div>
                 </div>
             </div>
@@ -101,6 +85,8 @@ class Post {
 
         if (this.img) {
             let imgBox = element.querySelector('.posts__img-box');
+            imgBox.style.width = '100%';
+            imgBox.style.margin = '0 0 30px';
             let image = document.createElement('img');
             image.src = `${this.img}`;
             image.classList.add('posts__img');
@@ -111,8 +97,83 @@ class Post {
         let likeBtn = element.querySelector('.posts__likes-btn');
         likeBtn.addEventListener('click', this.addLike);
 
+        let block = document.createElement('div');
+        block.classList.add('posts__comment');
+
+        block.innerHTML = `
+            <form class="commentSubmit">
+                <div class="posts__form-body">
+                    <h3 class="title posts__comment-title">Comments</h3>
+                </div>
+                <div class="posts__authorForm">
+                    <label for="nameAuthor" class="posts__form-author">Author</label>
+                    <input type="text" class="posts__form-authorControl" id="nameAuthor" name="authorName">
+                </div>
+                <div class="posts__comment-textForm">
+                    <label for="commentText" class="posts__comment-label">New comment</label>
+                    <textarea class="posts__comment-text" id="commentText" rows="3" name="commText"></textarea>
+                </div>
+                <button class="btn btn-submit posts__comment-btn" type="submit">Send post</button>
+            </form>
+        `;
+
+        element.appendChild(block);
+
+        let commentContainer = element.querySelector('.posts__form-body');
+
+        class Comment {
+            constructor(name, text, date) {
+                this.name = name;
+                this.text = text;
+                this.date = date ? date : new Date().toLocaleString();
+
+                this.commentRender();
+            }
+
+            commentRender = () => {
+                let item = document.createElement('div');
+                item.dataset.id = this.id;
+                item.classList.add('posts__news');
+
+                item.innerHTML = `
+                    <div class="posts__comment-body">
+                        <div class="posts__comment-wrap">
+                            <h4 class="posts__comment-author">${this.name}</h4>
+                            <p class="posts__comment-date">${this.date}</p>
+                        </div>
+                        <p class="posts__comment-descr">${this.text}</p>
+                    </div>
+                `;
+                commentContainer.appendChild(item);
+            }
+        }
+
         let commentBtn = element.querySelector('.posts__comm-btn');
-        commentBtn.addEventListener('clik', function (e) { })
+        commentBtn.addEventListener('click', function (e) {
+            block.classList.toggle('posts__comment-show');
+
+        });
+
+        let commentSubmit = element.querySelector('.commentSubmit');
+
+
+        commentSubmit.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let newComment = new Comment(e.target.authorName.value, e.target.commText.value);
+
+            comments.push(newComment);
+
+            // let dataComments = { comments }
+
+            let jsonComm = JSON.stringify(comments);
+
+            // posts.push(dataComments);
+
+            localStorage.setItem(`${this.comments}`, jsonComm);
+
+            commentSubmit.reset();
+        })
 
         postContainer.appendChild(element);
     }
@@ -124,6 +185,12 @@ const onFormSubmit = (e) => {
     let newPost = new Post(e.target.author.value, e.target.text.value, e.target.image.value);
 
     posts.unshift(newPost);
+
+    // let dataComments = {
+    //     comments
+    // };
+
+    // posts.push(dataComments);
 
     let jsonPost = JSON.stringify(posts);
 
@@ -150,7 +217,7 @@ let postsFromStorage = GetSavedPosts();
 
 if (postsFromStorage !== null) {
     postsFromStorage.forEach(function (post) {
-        new Post(post.author, post.body, post.img, post.likes, post.id, post.date);
+        new Post(post.author, post.body, post.img, post.likes, post.id, post.date, post.comments);
     })
 }
 
