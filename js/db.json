@@ -1,16 +1,31 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "author": "qwerty",
+      "body": "asdrtghjikl",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7Y2dAh5jqBYYRkQWWEseegOeXfjIXjfurcg&usqp=CAU",
+      "likes": 0,
+      "id": 1647452402059,
+      "date": "16.03.2022, 19:40:02",
+      "comments": []
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "author": "bhnjmk,l.",
+      "body": "dyt fuyohpjkl",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7Y2dAh5jqBYYRkQWWEseegOeXfjIXjfurcg&usqp=CAU",
+      "likes": 0,
+      "id": 1647461341713,
+      "date": "16.03.2022, 22:09:01",
+      "comments": []
+    },
+    {
+      "author": "qwerty",
+      "body": "xcyvbuim,[.",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFwuX319lrssHEdtFq4k3bqG66JctfZNVwwdRLpwzX_6cYBgcx6ZWzNo-GBbhOsAv9fBg&usqp=CAU",
+      "likes": 0,
+      "id": 1647461354303,
+      "date": "16.03.2022, 22:09:14",
+      "comments": []
     }
   ],
   "profile": {
