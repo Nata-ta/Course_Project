@@ -208,13 +208,36 @@ const addLike = (element) => (e) => {
     // like.innerHTML = counter;
 
     fetch(`${url}/${element.dataset.id}`, {
-        method: "GET",
-        "likes": "likes",
+        method: "POST",
         headers: {
             "Content-Type": "application/json"
         }
     });
 }
+
+const renderComment = (data) => {
+    let commentContainer = document.querySelector(`[data-id="${data.id}"] .posts__form-body`);
+    let item = document.createElement('div');
+    item.dataset.id = data.id;
+    item.classList.add('posts__news');
+
+    let allComments = data.comments;
+    console.log(allComments);
+
+    allComments.forEach(comment => {
+        item.innerHTML = `
+            <div class="posts__comment-body">
+                <div class="posts__comment-wrap">
+                    <h4 class="posts__comment-author">${comment.userName}</h4>
+                    <p class="posts__comment-date">${comment.commentDate}</p>
+                </div>
+                <p class="posts__comment-descr">${comment.commentText}</p>
+            </div>
+        `;
+
+        commentContainer.appendChild(item);
+    });
+};
 
 const renderePost = (data) => {
     let element = document.createElement('div');
@@ -285,10 +308,11 @@ const renderePost = (data) => {
 
     let commentSubmit = element.querySelector('.commentSubmit');
 
+    let comments = [];
+
     const onFormCommentSubmit = (e) => {
         e.preventDefault();
 
-        let comments = [];
         let userName = commentSubmit.authorName.value;
         let commentText = commentSubmit.commText.value;
         let commentDate = new Date().toLocaleString();
@@ -305,29 +329,37 @@ const renderePost = (data) => {
         item.dataset.id = data.id;
         item.classList.add('posts__news');
 
-        comments.forEach(comment => {
-            item.innerHTML = `
-                <div class="posts__comment-body">
-                    <div class="posts__comment-wrap">
-                        <h4 class="posts__comment-author">${comment.userName}</h4>
-                        <p class="posts__comment-date">${comment.commentDate}</p>
-                    </div>
-                    <p class="posts__comment-descr">${comment.commentText}</p>
+        item.innerHTML = `
+            <div class="posts__comment-body">
+                <div class="posts__comment-wrap">
+                    <h4 class="posts__comment-author">${userName}</h4>
+                    <p class="posts__comment-date">${commentDate}</p>
                 </div>
-            `;
-        })
+                <p class="posts__comment-descr">${commentText}</p>
+            </div>
+        `;
 
         data.comments = comments;
+
+        console.log(comments);
+
+        fetch(`${url}/${data.id}`, {
+            method: "PATCH",
+            body: JSON.stringify({
+                comments: comments
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
 
         commentContainer.appendChild(item);
 
         commentSubmit.reset();
-    }
+    };
 
     commentSubmit.addEventListener('submit', onFormCommentSubmit);
-
-
-}
+};
 
 postForm.addEventListener('submit', function () {
     let data = {
@@ -336,8 +368,7 @@ postForm.addEventListener('submit', function () {
         img: postForm.image.value,
         likes: 0,
         id: new Date().getTime(),
-        date: new Date().toLocaleString(),
-        comments: []
+        date: new Date().toLocaleString()
     };
 
     let jsonData = JSON.stringify(data);
@@ -358,5 +389,6 @@ fetch(url)
     .then(res => {
         res.forEach(item => {
             renderePost(item);
+            renderComment(item);
         })
     });
