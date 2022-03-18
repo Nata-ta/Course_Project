@@ -288,6 +288,9 @@ textarea {
 .posts__userForm {
   margin-bottom: 30px;
 }
+.posts__authorForm {
+  margin-bottom: 30px;
+}
 .posts__textForm {
   margin-bottom: 30px;
 }
