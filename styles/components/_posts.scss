@@ -4,9 +4,15 @@
     padding: 80px 100px;
     display: flex;
     justify-content: space-between;
+    @include b(tablet) {
+        flex-direction: column-reverse;
+    }
 
     &__body {
         width: 50%;
+        @include b(tablet) {
+            width: 100%;
+        }
 
         &-info {
             margin-bottom: 30px;
@@ -14,11 +20,18 @@
     }
 
     &__news {
+        padding: 25px;
         margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: $platinum-color 0px 0px 5px 0px;
     }
 
     &__creator {
-        width: 40%;
+        width: 45%;
+        @include b(tablet) {
+            width: 100%;
+            margin-bottom: 50px;
+        }
     }
 
     &__caption {
@@ -29,11 +42,17 @@
     &__wrap{
         display: flex;
         justify-content: space-between;
+        @include b(mobile) {
+            flex-direction: column;
+        }
     }
 
     &__title {
         margin-bottom: 30px;
         color: $secondary-color;
+        @include b(mobile) {
+            margin-bottom: 10px;
+        }
     }
 
     &__date {
@@ -49,6 +68,7 @@
         color: $primary-color;
         font-size: 16px;
         padding-bottom: 15px;
+        text-align: justify;
 
         &-body {
             width: 100%;
@@ -132,6 +152,9 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
+            @include b(mobile) {
+                flex-direction: column;
+            }
         }
 
         &-descr {
