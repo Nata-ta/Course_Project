@@ -1,7 +1,9 @@
+//menu btn
 document.querySelector('.more-button').addEventListener('click', function () {
     document.querySelector('.list-container').classList.toggle('active');
 });
 
+// back-to-top btn
 var mybutton = document.getElementById("myBtn");
 
 window.onscroll = function () { scrollFunction() };
@@ -19,11 +21,12 @@ function topFunction() {
     document.documentElement.scrollTop = 0;
 }
 
+// creat post
 let postForm = document.querySelector('.allNews');
 let postContainer = document.querySelector('.posts__body');
 let loadPostsBtn = postForm.querySelector('._loadPostsBtn');
 
-// task made by using localStorage
+// post made by using localStorage
 
 let posts = [];
 
@@ -259,8 +262,7 @@ if (postsFromStorage !== null) {
     })
 }
 
-// task made by using json-server
-
+// post made by using json-server
 
 // let url = 'http://localhost:3000/posts';
 

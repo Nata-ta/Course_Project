@@ -6,6 +6,7 @@
     justify-content: space-between;
     @include b(tablet) {
         flex-direction: column-reverse;
+        padding: 80px 30px;
     }
 
     &__body {
