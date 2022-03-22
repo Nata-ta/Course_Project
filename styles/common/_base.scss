@@ -82,7 +82,8 @@ a {
     font-size: 18px;
     border: none;
     outline: none;
-    background-color: $aquamarine-color;
+    background-color: rgba($btn-color, .5);
+    box-shadow: 0px 0px 0px 4px rgba(92,103,255, .2);
     color: $white-color;
     cursor: pointer;
     padding: 15px;
@@ -90,5 +91,6 @@ a {
   }
   
   #myBtn:hover {
-    background-color: $bangladesh-green-color;
+    box-shadow: 0px 0px 0px 8px rgba(92,103,255, .5);
+    background-color: darken($btn-color,4%);
   }

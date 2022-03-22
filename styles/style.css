@@ -78,7 +78,8 @@ a {
   font-size: 18px;
   border: none;
   outline: none;
-  background-color: #6ad0bc;
+  background-color: rgba(2, 254, 229, 0.5);
+  box-shadow: 0px 0px 0px 4px rgba(92, 103, 255, 0.2);
   color: #fff;
   cursor: pointer;
   padding: 15px;
@@ -86,7 +87,8 @@ a {
 }
 
 #myBtn:hover {
-  background-color: #046c58;
+  box-shadow: 0px 0px 0px 8px rgba(92, 103, 255, 0.5);
+  background-color: #01ebd3;
 }
 
 input,
