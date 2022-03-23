@@ -90,6 +90,19 @@ class Post {
         }
     }
 
+    removeElement = (element) => (e) => {
+        console.log(element, e);
+	    element.remove();
+        
+        posts.forEach(post => {
+            if (post.id === element.id) {
+                delete posts.post;
+            }
+        });
+
+        localStorage.setItem('posts', JSON.stringify(posts));
+    }
+
     render = () => {
         let comments = [];
 
@@ -106,9 +119,14 @@ class Post {
         element.classList.add('posts__news');
 
         element.innerHTML = `
-            <div class="posts__wrap">
-                <h3 class="title posts__title">${this.author}</h3>
-                <p class="posts__date">${this.date}</p>
+            <div class="posts__outer">
+                <div class="posts__wrap">
+                    <h3 class="title posts__title">${this.author}</h3>
+                    <p class="posts__date">${this.date}</p>
+                </div>
+                <span class="posts__remove-btn">
+                    <i class="fa fal fa-trash-alt"></i>
+                </span>
             </div>
             <div class="posts__img-box"></div>
             <div class="posts__body-info">
@@ -122,6 +140,9 @@ class Post {
             </div>
         `;
 
+        let removeBtn = element.querySelector('.posts__remove-btn');
+        removeBtn.addEventListener('click', this.removeElement(element));
+
         if (this.img) {
             let imgBox = element.querySelector('.posts__img-box');
             imgBox.style.width = '100%';
@@ -133,6 +154,47 @@ class Post {
             imgBox.appendChild(image);
         }
 
+        let postText = element.querySelector('.posts__descr');
+
+        if (this.body.length >= 500) {
+
+            let spanDots = document.createElement('span');
+            let more = document.createElement('span');
+            let moreBtn = document.createElement('button');
+
+            postText.innerText = `${this.body.slice(0, 500)}`;
+
+            spanDots.classList.add('dots');
+            spanDots.innerText = "...";
+
+            more.classList.add('more');
+            more.style.display = "none";
+            more.innerHTML = `${this.body.slice(500)}`;
+
+            moreBtn.classList.add('moreBtn');
+            moreBtn.innerHTML = "Read more";
+
+            function myFunction() {
+
+                if (spanDots.style.display === "none") {
+                    spanDots.style.display = "inline";
+                    moreBtn.innerHTML = "Read more";
+                    more.style.display = "none";
+                } else {
+                    spanDots.style.display = "none";
+                    moreBtn.innerHTML = "Read less";
+                    more.style.display = "inline";
+                }
+            }
+
+            moreBtn.addEventListener('click', myFunction);
+
+            postText.appendChild(spanDots);
+            postText.appendChild(more);
+            postText.appendChild(moreBtn);
+
+        }
+
         let likeBtn = element.querySelector('.posts__likes-btn');
         likeBtn.addEventListener('click', this.addLike);
 
@@ -142,10 +204,7 @@ class Post {
         block.innerHTML = `
             <form class="commentSubmit">
                 <h3 class="title posts__comment-title">Comments</h3>
-                <div class="posts__form-body">
-
-
-                </div>
+                <div class="posts__form-body"></div>
                 <div class="posts__authorForm">
                     <label for="nameAuthor" class="posts__form-author">Author</label>
                     <input type="text" class="posts__form-authorControl" id="nameAuthor" name="authorName">
@@ -203,7 +262,13 @@ class Post {
                         <p class="posts__comment-descr">${comment.commentText}</p>
                     </div>
                 `;
+
             });
+
+            commentContainer.appendChild(item);
+
+            let postCommCounter = element.querySelector('.posts__comm');
+            postCommCounter.innerHTML = `${comments.length}`;
 
             posts.forEach(post => {
                 if (post.id === this.id) {
@@ -213,10 +278,6 @@ class Post {
 
             localStorage.setItem('posts', JSON.stringify(posts));
 
-            commentContainer.appendChild(item);
-
-            let postCommCounter = element.querySelector('.posts__comm');
-            postCommCounter.innerHTML = `${comments.length}`;
 
             commentSubmit.reset();
         }
@@ -266,6 +327,17 @@ if (postsFromStorage !== null) {
 
 // let url = 'http://localhost:3000/posts';
 
+// const removeElement = (element) => {
+//     element.remove();
+
+//     fetch(`${url}/${element.dataset.id}`, {
+//         method: "DELETE",
+//         headers: {
+//             "Content-Type": "application/json"
+//         }
+//     });
+// }
+
 // const renderComment = (data) => {
 
 //     let allComments = data.comments;
@@ -312,7 +384,11 @@ if (postsFromStorage !== null) {
 //         <div class="posts__wrap">
 //             <h3 class="title posts__title">${data.author}</h3>
 //             <p class="posts__date">${data.date}</p>
+            
 //         </div>
+//         <span class="posts__remove-btn">
+//                 <i class="fa fal fa-trash-alt"></i>
+//             </span>
 //         <div class="posts__img-box"></div>
 //         <div class="posts__body-info">
 //             <div class="posts__descr-body">
@@ -325,6 +401,9 @@ if (postsFromStorage !== null) {
 //         </div>
 //     `;
 
+//     let removeBtn = element.querySelector('.posts__remove-btn');
+//     removeBtn.addEventListener('click', removeElement(element));
+
 //     if (data.img) {
 //         let imgBox = element.querySelector('.posts__img-box');
 //         imgBox.style.width = '100%';
@@ -335,6 +414,47 @@ if (postsFromStorage !== null) {
 
 //         imgBox.appendChild(image);
 //     };
+
+//     let postText = element.querySelector('.posts__descr');
+
+//     if (data.body.length >= 500) {
+
+//         let spanDots = document.createElement('span');
+//         let more = document.createElement('span');
+//         let moreBtn = document.createElement('button');
+
+//         postText.innerText = `${data.body.slice(0, 500)}`;
+
+//         spanDots.classList.add('dots');
+//         spanDots.innerText = "...";
+
+//         more.classList.add('more');
+//         more.style.display = "none";
+//         more.innerHTML = `${data.body.slice(500)}`;
+
+//         moreBtn.classList.add('moreBtn');
+//         moreBtn.innerHTML = "Read more";
+
+//         function myFunction() {
+
+//             if (spanDots.style.display === "none") {
+//                 spanDots.style.display = "inline";
+//                 moreBtn.innerHTML = "Read more";
+//                 more.style.display = "none";
+//             } else {
+//                 spanDots.style.display = "none";
+//                 moreBtn.innerHTML = "Read less";
+//                 more.style.display = "inline";
+//             }
+//         }
+
+//         moreBtn.addEventListener('click', myFunction);
+
+//         postText.appendChild(spanDots);
+//         postText.appendChild(more);
+//         postText.appendChild(moreBtn);
+
+//     }
 
 //     let likeBtn = element.querySelector('.posts__likes-btn');
 //     likeBtn.addEventListener('click', function (e) {

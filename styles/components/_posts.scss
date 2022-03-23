@@ -40,6 +40,11 @@
         color: $primary-color;
     }
 
+    &__outer {
+        display: flex;
+        justify-content: space-between;
+    }
+
     &__wrap{
         display: flex;
         justify-content: space-between;
@@ -49,14 +54,21 @@
     }
 
     &__title {
-        margin-bottom: 30px;
+        margin: 0 20px 30px 0;
         color: $secondary-color;
+        @include b(mobile) {
+            margin: 0 0 10px 0;
+        }
+    }
+
+    &__date {
+        margin-bottom: 30px;
         @include b(mobile) {
             margin-bottom: 10px;
         }
     }
 
-    &__date {
+    &__remove-btn {
         margin-bottom: 30px;
     }
 
@@ -192,4 +204,12 @@
         width: 100%;
     }
     
+}
+
+.moreBtn {
+    background: transparent;
+    color: $btn-color;
+    border: none;
+    font-size: 17px;
+    font-weight: 600;
 }

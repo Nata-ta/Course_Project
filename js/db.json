@@ -1,70 +1,13 @@
 {
-  "posts": [
-    {
-      "author": "qwerty",
-      "body": "asdfgyhujo,",
-      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7Y2dAh5jqBYYRkQWWEseegOeXfjIXjfurcg&usqp=CAU",
-      "likes": 28,
-      "id": 1647602441202,
-      "date": "18.03.2022, 13:20:41",
-      "comments": [
+    "posts": [],
+    "comments": [
         {
-          "userName": "qwert",
-          "commentDate": "18.03.2022, 16:06:40",
-          "commentText": "cyvubino"
-        },
-        {
-          "userName": "sdfgexcr",
-          "commentDate": "18.03.2022, 16:15:12",
-          "commentText": "xrctvybuni"
+            "id": 1,
+            "body": "some comment",
+            "postId": 1
         }
-      ]
-    },
-    {
-      "author": "qwerty",
-      "body": "asrdetgvyhuj",
-      "img": "https://pressgazette.co.uk/wp-content/uploads/2020/11/shutterstock.jpg",
-      "likes": 14,
-      "id": 1647611044664,
-      "date": "18.03.2022, 15:44:04",
-      "comments": [
-        {
-          "userName": "sdfg",
-          "commentDate": "18.03.2022, 15:44:14",
-          "commentText": "ASDCFGVBHJNK"
-        },
-        {
-          "userName": "sdfghj",
-          "commentDate": "18.03.2022, 15:45:14",
-          "commentText": "ASDDFCGVHBUJNKL"
-        },
-        {
-          "userName": "qwert",
-          "commentDate": "18.03.2022, 16:15:02",
-          "commentText": "aesrdfygh"
-        }
-      ]
-    },
-    {
-      "author": "NAta",
-      "body": "aesrdtfyguhijolpkjhgfdfghjkkjhghjkjhxchvbjcvbcgvhbkybjn",
-      "img": "https://pressgazette.co.uk/wp-content/uploads/2020/11/shutterstock.jpg",
-      "likes": 1,
-      "id": 1647612923216,
-      "date": "18.03.2022, 16:15:23",
-      "comments": []
-    },
-    {
-      "author": "qwerty1234",
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce posuere velit ut tellus dictum dignissim. Duis quis lectus ac magna pulvinar dignissim. In turpis mi, vehicula et dignissim in, elementum eu lectus. Ut ante metus, egestas in pulvinar tincidunt, lobortis a est. Aliquam lacus purus, pulvinar vitae orci eget, dignissim finibus justo. Aenean tempus tincidunt enim, nec aliquet nibh aliquet at. Fusce neque tortor, lacinia eget ultricies at, euismod ut felis.",
-      "img": "https://img1.akspic.ru/previews/1/3/0/5/4/145031/145031-glaz-krug-rozovyj-resnichka-graficeskij_dizajn-500x.jpg",
-      "likes": 2,
-      "id": 1647612983850,
-      "date": "18.03.2022, 16:16:23",
-      "comments": []
+    ],
+    "profile": {
+        "name": "typicode"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
 }
