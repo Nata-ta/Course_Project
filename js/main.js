@@ -91,12 +91,9 @@ class Post {
     }
 
     removeElement = (element) => (e) => {
-        console.log(element, e);
 	    element.remove();
 
-        console.log(posts.indexOf(posts.includes(this.id)))
-
-        posts.splice(posts.indexOf(posts.includes(this.id))+1, 1);
+        posts.splice(posts.indexOf(posts.find(post => post.id === this.id)), 1);
 
         localStorage.setItem('posts', JSON.stringify(posts));
     }
@@ -291,7 +288,7 @@ const onFormSubmit = (e) => {
 
     let newPost = new Post(e.target.author.value, e.target.text.value, e.target.image.value);
 
-    posts.unshift(newPost);
+    posts.push(newPost);
 
     let jsonPost = JSON.stringify(posts);
 
