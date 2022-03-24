@@ -93,12 +93,10 @@ class Post {
     removeElement = (element) => (e) => {
         console.log(element, e);
 	    element.remove();
-        
-        posts.forEach(post => {
-            if (post.id === element.id) {
-                delete posts.post;
-            }
-        });
+
+        console.log(posts.indexOf(posts.includes(this.id)))
+
+        posts.splice(posts.indexOf(posts.includes(this.id))+1, 1);
 
         localStorage.setItem('posts', JSON.stringify(posts));
     }
