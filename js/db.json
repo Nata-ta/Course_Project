@@ -1,13 +1,23 @@
 {
-    "posts": [],
-    "comments": [
+  "posts": [
+    {
+      "author": "Hello",
+      "body": "Etiam vitae nisi vitae nulla eleifend aliquam eu quis quam. Maecenas feugiat imperdiet justo, a hendrerit libero mollis non. Nulla fermentum lectus sed feugiat tristique. Cras eget commodo libero, et auctor nunc. Duis a bibendum nunc. Nam rhoncus massa sit amet odio interdum, eu vulputate dui consectetur. Phasellus faucibus magna eget risus egestas, eu imperdiet urna tempor. In finibus auctor neque. Suspendisse vel sodales nunc. Duis eget mauris id felis euismod pellentesque sit amet vel sapien. Quisque et arcu tempus, fringilla enim vel, vestibulum ante. Integer in vulputate ante. Nam fermentum sem ante, vel tristique purus tempor at. Integer in consequat quam, viverra cursus orci. Fusce sodales felis justo, sit amet lobortis nulla fermentum non.",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7Y2dAh5jqBYYRkQWWEseegOeXfjIXjfurcg&usqp=CAU",
+      "likes": 4,
+      "id": 1648201233567,
+      "date": "25.03.2022, 11:40:33",
+      "comments": [
         {
-            "id": 1,
-            "body": "some comment",
-            "postId": 1
+          "userName": "qwert",
+          "commentDate": "25.03.2022, 11:42:35",
+          "commentText": " nunc. Nam rhoncus massa sit amet odio interdum, eu vulputate dui consectetur. Pha"
         }
-    ],
-    "profile": {
-        "name": "typicode"
+      ]
     }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
 }
