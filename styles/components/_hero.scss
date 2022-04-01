@@ -13,6 +13,10 @@
         align-items: center;
     }
 
+    &__logo {
+      display: block;
+    }
+
     &__nav {
         @include b(tablet) {
             display: none;

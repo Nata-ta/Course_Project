@@ -26,6 +26,10 @@ html, body {
     min-height: 100%;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: $main-ff;
     font-size: $main-fz;

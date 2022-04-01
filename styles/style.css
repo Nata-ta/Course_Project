@@ -20,6 +20,10 @@ html, body {
   min-height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -153,6 +157,9 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.hero__logo {
+  display: block;
 }
 @media (max-width: 1024px) {
   .hero__nav {
